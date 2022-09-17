@@ -1,9 +1,8 @@
-We are using Livepeer and Microsoft Extended Reality for webrtc as the key infrastructure provider for online video streaming of critical road incidents ( Please find the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji). We are using Livepeer and Microsoft Extended Reality for webrtc at: Live streaming with Object Detection Video Analytics using Livepeer and and Microsoft Extended Reality for webrtc, streaming; Camera Management: Add/edit/delete cameras with integration with Livepeer.
-
 [![Licensed under the MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/microsoft/MixedReality-WebRTC/blob/master/LICENSE)
 [![Holodevelopers channel on Slack](https://img.shields.io/badge/slack-@holodevelopers-%23972299.svg?logo=slack)](https://holodevelopers.slack.com/messages/CN1A7JB3R)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.MixedReality.WebRTC)](https://github.com/microsoft/MixedReality-WebRTC/releases)
 
+We are using Livepeer and Microsoft Extended Reality for webrtc as the key infrastructure provider for online video streaming of critical road incidents ( Please find the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji). We are using Livepeer and Microsoft Extended Reality for webrtc at: Live streaming with Object Detection Video Analytics using Livepeer and and Microsoft Extended Reality for webrtc, streaming; Camera Management: Add/edit/delete cameras with integration with Livepeer.
 
 
 MixedReality-WebRTC is a collection of libraries to help mixed reality app developers to integrate peer-to-peer real-time audio and video communication into their application and improve their collaborative experience.
