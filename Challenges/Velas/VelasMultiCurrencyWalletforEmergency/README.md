@@ -1,5 +1,7 @@
 # Velas Multi-Currency Wallet
 
+We are using Velas Multicurrency web wallet for managing payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats. Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas
+
 ### Install and run wallet locally
 **Requirements:**
 node version 14.16+
