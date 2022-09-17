@@ -21,3 +21,5 @@ Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/in
 
 2. Velas: We are using Velas Multicurrency web wallet for managing payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats.
 Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
+
+3. SwissRe+Microsoft: We are using Livepeer and Microsoft Extended Reality for webrtc as the key infrastructure provider for online video streaming of critical road incidents ( Please find the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji). We are using Livepeer and Microsoft Extended Reality for webrtc at: Live streaming with Object Detection Video Analytics using Livepeer and and Microsoft Extended Reality for webrtc, streaming; Camera Management: Add/edit/delete cameras with integration with Livepeer.
