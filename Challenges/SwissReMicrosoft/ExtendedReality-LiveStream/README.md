@@ -1,8 +1,10 @@
-# MixedReality-WebRTC
+We are using Livepeer and Microsoft Extended Reality for webrtc as the key infrastructure provider for online video streaming of critical road incidents ( Please find the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji). We are using Livepeer and Microsoft Extended Reality for webrtc at: Live streaming with Object Detection Video Analytics using Livepeer and and Microsoft Extended Reality for webrtc, streaming; Camera Management: Add/edit/delete cameras with integration with Livepeer.
 
 [![Licensed under the MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/microsoft/MixedReality-WebRTC/blob/master/LICENSE)
 [![Holodevelopers channel on Slack](https://img.shields.io/badge/slack-@holodevelopers-%23972299.svg?logo=slack)](https://holodevelopers.slack.com/messages/CN1A7JB3R)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.MixedReality.WebRTC)](https://github.com/microsoft/MixedReality-WebRTC/releases)
+
+
 
 MixedReality-WebRTC is a collection of libraries to help mixed reality app developers to integrate peer-to-peer real-time audio and video communication into their application and improve their collaborative experience.
 
@@ -15,11 +17,6 @@ MixedReality-WebRTC is a collection of libraries to help mixed reality app devel
 
 MixedReality-WebRTC is part of the collection of repositories developed and maintained by the [Mixed Reality Sharing team](https://github.com/orgs/microsoft/teams/mixed-reality-sharing).
 
-<h2><b><span style="color:red">Caution</span></b></h2>
-
-<span style="color:red">**MR-WebRTC has been deprecated. We're no longer committing development resources to it, taking pull requests for it, or planning a replacement for it.**</span>
-
-- If you want to continue updating it, you must fork and maintain your own branch.
 
 ## Download
 
@@ -101,7 +98,6 @@ The `Microsoft.MixedReality.WebRTC.sln` Visual Studio 2019 solution located at t
 - A C# unit tests project `Microsoft.MixedReality.WebRTC.Tests`
 - A UWP C# sample app project `Microsoft.MixedReality.WebRTC.TestAppUWP` based on WPF and XAML which demonstrates audio / video / data communication by mean of a simple video chat app.
 
-_Note_ - Currently due to CI limitations some projects are downgraded to VS 2017, as the Google M71 milestone the `master` and `release/1.0` branches are building upon does not support VS 2019, and Azure DevOps CI agents do not support multiple Visual Studio versions on the same agent. This will be reverted to VS 2019 eventually (see [#14](https://github.com/microsoft/MixedReality-WebRTC/issues/14)).
 
 ## Building MixedReality-WebRTC
 
