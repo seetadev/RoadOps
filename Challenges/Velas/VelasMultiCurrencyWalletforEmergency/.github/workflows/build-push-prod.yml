@@ -1,0 +1,334 @@
+name: Deploy to prod from master branch
+on:
+  push:
+    branches: [master]
+concurrency:
+  group: js-wallet-prod-deploy
+  cancel-in-progress: true
+jobs:
+  build-wallet-for-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+
+      - name: checkout web3t master branch
+        uses: actions/checkout@v2
+        with:
+          repository: velas/web3t
+          path: .compiled-ssr/web3t
+          ref: master
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: install latest npm
+        run: npm install -g npm@latest
+
+      - name: install web3t modules
+        working-directory: .compiled-ssr/web3t
+        run: npm i
+
+      - name: install lsxc
+        run: npm i lsxc -g --unsafe-perm
+
+      - name: copy web3 side by side to wallet
+        working-directory: ../
+        run: rm -rf web-wallet/.compiled-ssr/web3t/.git/objects/ && mkdir -p web3t/ && cp -pr web-wallet/.compiled-ssr/web3t/ ./
+      - name: install wallet modules
+        run: npm i --legacy-peer-deps
+
+      - name: build wallet
+        run: npm run wallet-build
+
+      - name: launch wallet
+        run: |
+          npm run wallet-start:no-watch &
+          echo '- - - - - Wallet is started - - - - -'
+
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+
+      - name: upload wallet as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: wallet
+          path: |
+            .compiled/main-bundle.css
+            .compiled/main-bundle.js
+            .compiled/main-index.html
+
+  stable-tests:
+    runs-on: ubuntu-latest
+    needs: build-wallet-for-tests
+    concurrency:
+      group: web-wallet-e2e-tests-stable
+      cancel-in-progress: false
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - uses: actions/download-artifact@v3
+        with:
+          name: wallet
+          path: e2e/wallet
+      - name: launch wallet
+        working-directory: ./e2e/wallet
+        run: |
+          npx http-server &
+          echo '- - - - - Wallet is started - - - - -'
+      - name: install test npm modules
+        working-directory: ./e2e
+        run: npm i
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+      - name: run tests stable
+        working-directory: ./e2e
+        run: CI=true npm run test:stable
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: stable-test-report-before-deploy
+          path: |
+            e2e/stable-test-report
+          retention-days: 4
+
+  swap-tests:
+    runs-on: ubuntu-latest
+    needs: build-wallet-for-tests
+    concurrency:
+      group: web-wallet-e2e-tests-swap
+      cancel-in-progress: false
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - uses: actions/download-artifact@v3
+        with:
+          name: wallet
+          path: e2e/wallet
+      - name: launch wallet
+        working-directory: ./e2e/wallet
+        run: |
+          npx http-server &
+          echo '- - - - - Wallet is started - - - - -'
+      - name: install test npm modules
+        working-directory: ./e2e
+        run: npm i
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+      - name: run tests swap
+        working-directory: ./e2e
+        run: CI=true npm run test:swap:smoke
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: swap-test-report-before-deploy
+          path: |
+            e2e/swap-test-report
+          retention-days: 4
+
+  staking-tests:
+    runs-on: ubuntu-latest
+    needs: build-wallet-for-tests
+    concurrency:
+      group: web-wallet-e2e-tests-staking
+      cancel-in-progress: false
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - uses: actions/download-artifact@v3
+        with:
+          name: wallet
+          path: e2e/wallet
+      - name: launch wallet
+        working-directory: ./e2e/wallet
+        run: |
+          npx http-server &
+          echo '- - - - - Wallet is started - - - - -'
+      - name: install test npm modules
+        working-directory: ./e2e
+        run: npm i
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+      - name: run tests staking
+        working-directory: ./e2e
+        run: CI=true npm run test:staking
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: staking-test-report-before-deploy
+          path: |
+            e2e/staking-test-report
+          retention-days: 4
+
+  docker-build-push:
+    # Name the Job
+    name: Build and push (prod)
+    runs-on: ubuntu-latest
+    outputs:
+      repository: ${{ steps.build.outputs.repository }}
+      image_tag: ${{ steps.build.outputs.image_tag }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        id: checkout
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      - name: Build, tag, and push image to AWS ECR
+        id: build
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: velas-wallet
+          IMAGE_TAG: ${{github.sha}}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --no-cache -f Dockerfile .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=repository::$ECR_REPOSITORY"
+          echo "::set-output name=image_tag::$IMAGE_TAG"
+  deploy:
+    name: Deploy to prod via Helmfile
+    runs-on: deployer
+    needs: [stable-tests, swap-tests, staking-tests, docker-build-push]
+    # needs: [docker-build-push]
+    container:
+      image: quay.io/roboll/helmfile:v0.142.0
+    steps:
+      - name: Configure AWS credentials
+        id: checkout
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+      - name: Check out velas-infra
+        uses: actions/checkout@master
+        with:
+          repository: velas/velas-infra
+          token: ${{ secrets.INFRA_PULL_TOKEN }}
+      - uses: azure/k8s-set-context@v2
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA_AWS_RAW }}
+          context: "eks_prod-prod"
+      - name: Sops Binary Installer
+        uses: mdgreenwald/mozilla-sops-action@v1.1.0
+      - uses: prepor/action-aws-iam-authenticator@master
+      - name: Deploy via helmfile
+        id: deploy
+        env:
+          ECR_REPOSITORY: ${{ needs.docker-build-push.outputs.repository }}
+          IMAGE_TAG: ${{ needs.docker-build-push.outputs.image_tag }}
+          ECR_REGION: ${{ secrets.AWS_REGION }}
+          NAMESPACE: default
+        run: |
+          helm plugin install https://github.com/databus23/helm-diff || true
+          cd deploy
+          account_id=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .accountId)
+          ECR_REGISTRY=${account_id}.dkr.ecr.${ECR_REGION}.amazonaws.com
+          helmfile -e prod -l namespace=${NAMESPACE},name=velas-wallet apply  --set image.tag=$IMAGE_TAG,image.repository=$ECR_REGISTRY/$ECR_REPOSITORY --skip-deps
+
+  stable-tests-prod:
+    concurrency:
+      group: web-wallet-e2e-tests-stable
+      cancel-in-progress: false
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./e2e
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - name: install npm modules
+        run: npm i
+      - name: run tests
+        run: CI=true LOG_LEVEL=debug ENVIRONMENT=prod NETWORK=testnet npm run test:stable
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: stable-test-report-after-deploy
+          path: |
+            e2e/stable-test-report
+          retention-days: 3
+
+  swap-tests-prod:
+    concurrency:
+      group: web-wallet-e2e-tests-swap
+      cancel-in-progress: false
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./e2e
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - name: install npm modules
+        run: npm i
+      - name: run tests
+        run: CI=true LOG_LEVEL=debug ENVIRONMENT=prod NETWORK=testnet npm run test:swap:smoke
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: swap-test-report-after-deploy
+          path: |
+            e2e/swap-test-report
+          retention-days: 3
+
+  staking-tests-prod:
+    concurrency:
+      group: web-wallet-e2e-tests-staking
+      cancel-in-progress: false
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./e2e
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - name: install npm modules
+        run: npm i
+      - name: run tests
+        run: CI=true LOG_LEVEL=debug ENVIRONMENT=prod NETWORK=testnet npm run test:staking
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: staking-test-report-after-deploy
+          path: |
+            e2e/staking-test-report
+          retention-days: 3
+

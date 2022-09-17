@@ -1,0 +1,148 @@
+[
+{
+  "constant": false,
+  "inputs": [
+    {
+      "name": "proposal",
+      "type": "uint256"
+    }
+  ],
+  "name": "vote",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "constant": false,
+  "inputs": [
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    }
+  ],
+  "name": "addProposal",
+  "outputs": [],
+  "payable": true,
+  "stateMutability": "payable",
+  "type": "function"
+},
+{
+  "constant": false,
+  "inputs": [
+    {
+      "name": "proposal",
+      "type": "uint256"
+    }
+  ],
+  "name": "deleteProposal",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "constant": true,
+  "inputs": [],
+  "name": "getProposalsCount",
+  "outputs": [
+    {
+      "name": "",
+      "type": "uint256"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "constant": true,
+  "inputs": [
+    {
+      "name": "proposal",
+      "type": "uint256"
+    },
+    {
+      "name": "sender",
+      "type": "address"
+    }
+  ],
+  "name": "getProposalByIndex",
+  "outputs": [
+    {
+      "name": "",
+      "type": "string"
+    },
+    {
+      "name": "",
+      "type": "string"
+    },
+    {
+      "name": "",
+      "type": "uint256"
+    },
+    {
+      "name": "",
+      "type": "uint256"
+    },
+    {
+      "name": "",
+      "type": "uint256"
+    },
+    {
+      "name": "",
+      "type": "bool"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "constant": false,
+  "inputs": [
+    {
+      "name": "proposal",
+      "type": "uint256"
+    },
+    {
+      "name": "progress",
+      "type": "uint256"
+    }
+  ],
+  "name": "setProgress",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+},
+{
+  "constant": true,
+  "inputs": [],
+  "name": "stakingContract",
+  "outputs": [
+    {
+      "name": "",
+      "type": "address"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+},
+{
+  "inputs": [
+    {
+      "name": "_stakingContract",
+      "type": "address"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "constructor"
+}
+]

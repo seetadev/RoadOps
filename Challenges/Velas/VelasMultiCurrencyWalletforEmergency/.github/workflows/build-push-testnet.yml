@@ -1,0 +1,138 @@
+name: Deploy to testnet from testnet branch
+on:
+  push:
+    branches: [testnet]
+    
+env: 
+  APP_NAME: velas-wallet
+  APP_REPO: velas-wallet
+concurrency:
+  group: js-wallet-testnet-deploy
+  cancel-in-progress: true
+jobs:
+  docker-build:
+    name: Build and push
+    runs-on:  testnet-services
+    outputs:
+      repository: ${{ steps.build.outputs.repository }}
+      image_tag: ${{ steps.build.outputs.image_tag }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build, tag, and push image 
+        id: build
+        env:
+          REGISTRY: ${{ secrets.REGISTRY_HOST }}/velas
+          REPOSITORY: ${{ env.APP_REPO }}
+          IMAGE_TAG: ${{github.sha}}
+        run: |
+          docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG --no-cache -f Dockerfile.testnet  .
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+  deploy:
+    name: Deploy via Helmfile
+    runs-on: testnet-services
+    needs: docker-build
+    steps:
+      - name: Check out velas-infra
+        uses: actions/checkout@master
+        with:
+          repository: velas/velas-infra
+          ref: master
+          ssh-key: ${{ secrets.SSH_KEY_INFRA }}
+      - name: Deploy via helmfile
+        id: deploy
+        env:
+          REGISTRY: ${{ secrets.REGISTRY_HOST }}/velas
+          REPOSITORY: ${{ env.APP_REPO }}
+          IMAGE_TAG: ${{github.sha}}
+          SOPS_AGE_KEY: ${{ secrets.INFRA_AGE }}
+        run: |
+          cd deploy
+          helmfile -e ${HELM_ENV} -l namespace=${NAMESPACE},name=${{ env.APP_NAME }} apply  --set image.tag=$IMAGE_TAG,image.repository=$REGISTRY/$REPOSITORY --skip-deps
+
+  swap-tests-testnet:
+    concurrency:
+      group: web-wallet-e2e-tests-swap
+      cancel-in-progress: false
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./e2e
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - name: install npm modules
+        run: npm i
+      - name: run tests
+        run: CI=true LOG_LEVEL=debug LOG_LEVEL=debug ENVIRONMENT=testnet NETWORK=testnet npm run test:swap
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: swap-test-report
+          path: |
+            e2e/swap-test-report
+          retention-days: 5
+  stable-tests-testnet:
+    concurrency:
+      group: web-wallet-e2e-tests-stable
+      cancel-in-progress: false
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./e2e
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - name: install npm modules
+        run: npm i
+      - name: run tests
+        run: CI=true LOG_LEVEL=debug LOG_LEVEL=debug ENVIRONMENT=testnet NETWORK=testnet npm run test:stable
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: stable-test-report
+          path: |
+            e2e/stable-test-report
+          retention-days: 5
+  staking-tests-testnet:
+    concurrency:
+      group: web-wallet-e2e-tests-staking
+      cancel-in-progress: false
+    needs: deploy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./e2e
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: install latest npm
+        run: npm install -g npm@latest
+      - name: install npm modules
+        run: npm i
+      - name: run tests
+        run: CI=true LOG_LEVEL=debug LOG_LEVEL=debug ENVIRONMENT=testnet NETWORK=testnet npm run test:staking
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: staking-test-report
+          path: |
+            e2e/staking-test-report
+          retention-days: 5

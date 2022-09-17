@@ -1,0 +1,239 @@
+name: e2e-tests-on-PR
+on:
+  pull_request:
+    branches:
+      - '**'
+      - '!master'
+concurrency:
+  group: js-wallet-e2e-tests-${{github.event.pull_request.number}}
+  cancel-in-progress: true
+jobs:
+  build-wallet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+
+      - name: get branch name
+        run: echo ${{github.event.pull_request.head.ref}} && echo '::set-output name=branch_name::${{github.event.pull_request.head.ref}}'
+        id: get-branch-name
+
+      - name: checkout web3t, testnet branch
+        uses: actions/checkout@v2
+        with:
+          repository: velas/web3t
+          path: .compiled-ssr/web3t
+          ref: testnet
+
+      - name: get PR data
+        id: pr-data
+        uses: velas/get-pull-request-data@master
+
+      - name: try to checkout the same branch for web3t
+        # executed only if Pull Request title contains "web3t" string
+        if: contains(steps.pr-data.outputs.title, 'web3t')
+        uses: actions/checkout@v2
+        continue-on-error: true
+        with:
+          repository: velas/web3t
+          path: .compiled-ssr/web3t
+          ref: ${{ steps.get-branch-name.outputs.branch_name }}
+  
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: install latest npm
+        run: npm install -g npm@latest
+
+      - name: install web3t modules
+        working-directory: .compiled-ssr/web3t
+        run: npm i
+
+      - name: install lsxc
+        run: npm i lsxc -g --unsafe-perm
+
+      - name: copy web3 side by side to wallet
+        working-directory: ../
+        run: rm -rf web-wallet/.compiled-ssr/web3t/.git/objects/ && mkdir -p web3t/ && cp -pr web-wallet/.compiled-ssr/web3t/ ./
+
+      - name: install wallet modules
+        run: npm i --legacy-peer-deps
+
+      - name: build wallet
+        run: npm run wallet-build
+
+      #
+      - name: check token providers in default.conf
+        run: npm run test:check-token-providers-in-default-conf
+      #
+
+      - name: launch wallet
+        run: |
+            npm run wallet-start:no-watch &
+            echo '- - - - - Wallet is started - - - - -'
+
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+
+      - name: upload wallet as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: wallet
+          path: |
+            .compiled/main-bundle.css
+            .compiled/main-bundle.js
+            .compiled/main-index.html
+
+
+  stable-tests-on-feature-branch:
+    needs: build-wallet
+    concurrency:
+      group: web-wallet-e2e-tests-stable
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: install latest npm
+        run: npm install -g npm@latest
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: wallet
+          path: e2e/wallet
+
+      - name: launch wallet
+        working-directory: ./e2e/wallet
+        run: |
+          npx http-server &
+          echo '- - - - - Wallet is started - - - - -'
+
+      - name: install test npm modules
+        working-directory: ./e2e
+        run: npm i
+
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+
+      - name: run tests stable
+        working-directory: ./e2e
+        run: CI=true npm run test:stable
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: stable-test-report
+          path: |
+            e2e/stable-test-report
+          retention-days: 3
+
+
+  swap-tests-on-feature-branch:
+    needs: build-wallet
+    concurrency:
+      group: web-wallet-e2e-tests-swap
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+    
+      - name: install latest npm
+        run: npm install -g npm@latest
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: wallet
+          path: e2e/wallet
+
+      - name: launch wallet
+        working-directory: ./e2e/wallet
+        run: |
+          npx http-server &
+          echo '- - - - - Wallet is started - - - - -'
+
+      - name: install test npm modules
+        working-directory: ./e2e
+        run: npm i
+
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+
+      - name: run tests swap
+        working-directory: ./e2e
+        run: CI=true npm run test:swap:smoke
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: swap-test-report
+          path: |
+            e2e/swap-test-report
+          retention-days: 3
+
+
+  staking-tests-on-feature-branch:
+    concurrency:
+      group: web-wallet-e2e-tests-staking
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    needs: build-wallet
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: install latest npm
+        run: npm install -g npm@latest
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: wallet
+          path: e2e/wallet
+
+      - name: launch wallet
+        working-directory: ./e2e/wallet
+        run: |
+          npx http-server &
+          echo '- - - - - Wallet is started'
+
+      - name: install test npm modules
+        working-directory: ./e2e
+        run: npm i
+
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+
+      - name: run tests staking
+        working-directory: ./e2e
+        run: CI=true npm run test:staking
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: staking-test-report
+          path: |
+            e2e/staking-test-report
+          retention-days: 3
+
+# - name: balances api health check
+#   run: CI=true npm run balances-api-health-check
+
+# - name: balances api health check
+#   run: CI=true npm run balances-api-health-check

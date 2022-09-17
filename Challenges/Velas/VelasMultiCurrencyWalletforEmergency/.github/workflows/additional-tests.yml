@@ -1,0 +1,25 @@
+name: additional-tests
+on:
+  pull_request:
+    branches:
+      - '**'
+      # - '!master'
+jobs:
+  check-dev-domain-absence:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout web-wallet
+        uses: actions/checkout@v2
+
+      - name: check dev domain absence is repo
+        run: |
+          grep -Ri ${{secrets.SECRET_DOMAIN}} . \
+          --exclude-dir node_modules \
+          --exclude-dir e2e/node_modules \
+          --exclude-dir .git || exit 0 && \
+          echo ' - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -' && \
+          echo 'The development domain was found in repository code.' && \
+          echo 'See filename(s) above.' && \
+          echo 'Domain is replaced with *** due to security.' && \
+          echo ' - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -' && \
+          exit 13

@@ -1,0 +1,58 @@
+name: check-pr-title-add-description-add-jira-comment-with-PR-link
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+    branches: 
+      - '**'
+      - '!master'
+jobs:
+  check-pr-title-add-description-add-jira-comment-with-PR-link:
+    runs-on: ubuntu-latest
+    steps:
+      - name: login to Jira
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: https://velasnetwork.atlassian.net
+          JIRA_USER_EMAIL: velas.network.ag@gmail.com
+          JIRA_API_TOKEN: ${{secrets.JIRA_API_TOKEN}}
+
+      - name: check PR title
+        uses: velas/check-pull-request-title@master
+        with:
+          ticket_id_pattern: 'VLWA-\d+'
+
+      - name: get PR data
+        id: pr-data
+        uses: velas/get-pull-request-data@master
+
+      - name: get Jira tikets IDs
+        id: jiraissueid
+        if: ${{ steps.pr-data.outputs.title }}
+        uses: velas/regex-action@master
+        with:
+          regex_pattern: 'VLWA-\d+'
+          regex_flags: 'gim'
+          search_string: ${{ steps.pr-data.outputs.title }}
+          return_global_or_first_match: 'global'
+
+      - name: comment on issue
+        if: ${{ steps.jiraissueid.outputs.match }}
+        uses: velas/jira-comment@master
+        with:
+          issues_keys: ${{ steps.jiraissueid.outputs.match }}
+          comment: ${{ steps.pr-data.outputs.url }}
+
+      - name: get issue summaries
+        id: jira-issues-summaries
+        if: ${{ steps.jiraissueid.outputs.match }}
+        uses: velas/get-jira-issues-summaries@master
+        with:
+          issuesIDs: ${{ steps.jiraissueid.outputs.match }}
+
+      - name: add PR description
+        uses: velas/pr-description@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          description-message: ${{ steps.jira-issues-summaries.outputs.summary }}
+          delete-previous-comment: false

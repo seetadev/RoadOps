@@ -1,0 +1,12 @@
+Dockerfile.local
+.compiled
+.compiled-ssr
+langs/config.json
+.DS_Store
+.vscode
+.expo/settings.json
+.idea
+node_modules/*
+
+#tests
+e2e/*-test-report

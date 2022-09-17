@@ -1,0 +1,69 @@
+name: bridges-send-test
+on:
+  schedule:
+     - cron:  '13 0 * * 0'
+concurrency:
+  group: bridges-send-test-${{github.event.pull_request.number}}
+  cancel-in-progress: true
+jobs:
+  build-wallet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print date
+        run: date
+
+      - name: checkout web-wallet
+        uses: actions/checkout@v3
+
+      - name: checkout web3t, testnet branch
+        uses: actions/checkout@v3
+        with:
+          repository: velas/web3t
+          path: .compiled-ssr/web3t
+          ref: testnet
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: install latest npm
+        run: npm install -g npm@latest
+
+      - name: install web3t modules
+        working-directory: .compiled-ssr/web3t
+        run: npm i
+
+      - name: install lsxc
+        run: npm i lsxc -g --unsafe-perm
+
+      - name: copy web3 side by side to wallet
+        working-directory: ../
+        run: rm -rf web-wallet/.compiled-ssr/web3t/.git/objects/ && mkdir -p web3t/ && cp -pr web-wallet/.compiled-ssr/web3t/ ./
+
+      - name: install wallet modules
+        run: npm i --legacy-peer-deps
+
+      - name: build wallet
+        run: npm run wallet-build
+
+      - name: launch wallet
+        run: |
+            npm run wallet-start:no-watch &
+            echo '- - - - - Wallet is started - - - - -'
+
+      - name: check that wallet has started
+        run: curl 127.0.0.1:8080 || (echo "ERROR! Walet has not started! Please check outputs of build/run wallet commands" && exit 1)
+
+      - name: run tests stable
+        working-directory: ./e2e
+        run: CI=true npm run test:bridges-send
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: bridges-send-test-report
+          path: |
+            e2e/bridges-send-test-report
+          retention-days: 3
+
