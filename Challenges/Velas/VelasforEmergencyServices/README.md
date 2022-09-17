@@ -1,3 +1,7 @@
+We are using Velas Multicurrency web wallet for managing payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats. Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
