@@ -1,0 +1,16 @@
+[package]
+name = "tests"
+version = "1.0.0"
+authors = ["Maciej Zielinski <maciek.s.zielinski@gmail.com>"]
+edition = "2021"
+
+[dev-dependencies]
+casper-engine-test-support = { version = "2.2.0", features = ["test-support"] }
+casper-execution-engine = "2.0.0"
+casper-types = "1.5.0"
+
+[[bin]]
+name = "integration-tests"
+path = "src/integration_tests.rs"
+bench = false
+doctest = false
