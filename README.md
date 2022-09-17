@@ -17,7 +17,7 @@ Features:
 Sponsor challenge submissions:
 
 1. Casper: We are using Casper to develop a counter for road incidents in a specific region which could be shared across citizens and government authorities.
-Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter and  https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
+Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter and video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
 
 2. Velas: We are using Velas Multicurrency web wallet for managing payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats.
-Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
+Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
