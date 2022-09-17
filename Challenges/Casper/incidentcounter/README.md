@@ -1,6 +1,5 @@
-# Counter Smart Contract
-
-This is an example of a simple smart contract, the Counter.
+We are using Casper to develop a counter smart contract for road incidents in a specific region which could be shared across citizens and government authorities.
+Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter
 
 ## Usage
 
