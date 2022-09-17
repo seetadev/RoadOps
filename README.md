@@ -14,7 +14,7 @@ Features:
 4. Real Time Analytics: Analytics of the incidents with sentiment analysis and live incident reporting.  road safety eco-system. Health summary of the police staff, scheduling the staff. Reducing misinformation.
 
 
-Challenges:
+Sponsor challenge submissions:
 
 1. Casper: We are using Casper to develop a counter for road incidents in a specific region which could be shared across citizens and government authorities.
 Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter
