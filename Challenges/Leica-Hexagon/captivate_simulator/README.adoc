@@ -1,0 +1,75 @@
+= Leica Captivate simulator setup
+:toc-title: Table of Contents
+:toclevels: 3
+:toc:
+:numbered:
+
+== Download Leica Captivate simulator
+You can download the simulator https://hexmet-my.sharepoint.com/:u:/g/personal/patrik_lengweiler_leica-geosystems_com/EZ1By0Iq5z1FoSc56SmGzKMBPfdgydy1QeaiCFsAkhCd_g?e=MPrW5V[here]
+
+== Installing Leica Captivate simulator
+First thing you need to do is to install the Leica Captivate simulator to your PC by running the Setup.exe file. +
+
+After the installation has finished you can start the simulator with the _"Leica Captivate TS_MS simulator"_ shortcut on your desktop.
+
+If you have a firewall please allow the simulator through your firewall to avoid problems with the video stream.
+
+
+== Setup Leica Captivate simulator
+
+=== Select MS60 TS model
+After starting the simulator click on the gear wheel icon at the bottom right corner, select MS60 TS model, press on OK and restart the simulator.
+
+=== Activate the cameras
+Please make sure that the cameras are activated.
+
+Go to _Settings->TS Instrument->Cameras_ and activate the _Overview_ and _Telescope_ cameras.
+
+You can leave the camera parameters on the default values.
+
+== The _Measure_ application
+This survey application is used for point measurement. Angles and distances for points can be measured and stored using Measure, Distance and Store.
+
+
+
+== Changing the Horizontal and Vertical angles
+
+=== Changing angles from the simulator
+In the _Measure_ application you can change the total station's horizontal and vertical angle by clicking on the left-right or the top-bottom side of the camera view. +
+
+On a real device by changing these angles the total station changes its direction. Similarly, you can change the total station direction in your virtual environment.
+
+The angle values are also synchronized into the following Windows registry keys:
+
+Horizontal angle: +
+    Computer\HKEY_CURRENT_USER\SOFTWARE\Leica Geosystems\System 1500\TS\Settings\AngleHz +
+    
+Vertical angle: + 
+    Computer\HKEY_CURRENT_USER\SOFTWARE\Leica Geosystems\System 1500\TS\Settings\AngleV
+    
+NOTE: The angle values stored in the registry are radian values. +
+In the simulator they are represented in degrees.
+
+NOTE: The camera field of view is not considered if you click on the camera view within the simulator (horizontal angle movement will be bigger)
+
+=== Changing angles from outside of the simulator
+In reality if you changes the total station direction the angle values are updated immediatly in Captivate.
+
+Similarly, if you change the total station direction in your virtual environment the angle values in the simulator should be syncronized.
+
+By changing the AngleHz and AngleV values in the registry the simulator applies the new values immediately. + 
+
+We offer you a small Python script and example code to change these registry values programmatically.
+
+You can find this script under the https://github.hexagon.com/patrik-lengweiler/hackzurich-2022-preparation/tree/main/captivate_simulator/simulator_access_grpc[simulator_access_grpc] folder of this repository.
+
+
+
+
+
+
+
+
+
+
+

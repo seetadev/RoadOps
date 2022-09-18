@@ -1,0 +1,34 @@
+
+//"""The Python implementation of the GRPC access_measurements.Getter and Setter proto."""
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.access_measurements";
+option java_outer_classname = "access";
+option objc_class_prefix = "AMS";
+
+package access;
+
+// The service definition.
+service SetGetter {
+  rpc GetAngleHzRad (GetRequest) returns (Reply) {}
+  rpc GetAngleVRad (GetRequest) returns (Reply) {}
+  rpc GetDistSlope (GetRequest) returns (Reply) {}
+  rpc SetAngleHzRad (SetRequest) returns (Reply) {}
+  rpc SetAngleVRad (SetRequest) returns (Reply) {}
+  rpc SetDistSlope (SetRequest) returns (Reply) {}
+}
+
+// The request message used in the getting function.
+message GetRequest { }
+
+// The request message used in the setting function
+message SetRequest {
+  float value = 1;
+}
+
+// The response message containing the values
+message Reply {
+  float value = 1;
+}
