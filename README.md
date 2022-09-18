@@ -26,4 +26,5 @@ Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and
 
 4. Zurich: Health counselling, preventive treatment and remediation using a decentralized Twitter application by connecting patients with volunteer doctors. Please visit https://drive.google.com/drive/folders/1SF6o4OohPtz6z2THMoOQ8CZ9A0HvUgfb for watching the video and source code at https://github.com/seetadev/RoadOps/tree/main/Solution_Modules/Twitter%20like%20CounselingPlatform_usingEmbarkandEthereum
 
+5. ZF (Challenge - Connected Vehicles for Efficiency and Sustainability): Recommender system that helps a fleet manager to optimize the logistics operations using SocialCalc open source spreadsheet on sugar iot platform, alexa skill integration and ethereum blockchain-IPFS integration for proof of service/trust. Please visit https://drive.google.com/drive/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97 and https://github.com/seetadev/RoadOps/tree/main/Challenges/zf
 
