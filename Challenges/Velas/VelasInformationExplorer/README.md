@@ -1,6 +1,4 @@
-<p align="center">
-    <img alt="Solana" src="https://i.imgur.com/uBVzyX3.png" width="250" />
-</p>
+We are using Velas Multicurrency web wallet and information explorer with data analytics powered by SocialCalc for managing information and payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. SocialCalc with Velas explorer enables tabulation, data organization and management, is an easy-to-use analysis tool that summarises core data and features of a Token or NFT such as chains used, origin, issuer, energy consumption, and minting method. Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats. Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
 
 # Velas Explorer
 
