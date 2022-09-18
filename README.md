@@ -16,7 +16,9 @@ Features:
 
 Sponsor challenge submissions:
 
-1. Casper: We are using Casper to develop a counter for road incidents in a specific region which could be shared across citizens and government authorities.
+1. Casper  (AXA – Impact Token
+A token is used for positive societal behavior and can be used for services, products, and discounts.): 
+We are using Casper to develop a counter for road incidents in a specific region which could be shared across citizens and government authorities.
 Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter and watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
 
 2. Velas: We are using Velas Multicurrency web wallet and information explorer with data analytics powered by SocialCalc for managing information and payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. SocialCalc with Velas explorer enables tabulation, data organization and management, is an easy-to-use analysis tool that summarises core data and features of a Token or NFT such as chains used, origin, issuer, energy consumption, and minting method.
