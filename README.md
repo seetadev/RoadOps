@@ -31,3 +31,4 @@ Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and
 
 6. Leica Hexagon: We are developing an ICM (investigative case management) solution and a training system for citizens and police officers to understand and analyze the different categories of road incidents and be better prepared for managing future road accidents or emergency cases. Live video streaming enables administrators at command and control center to define severity index of various types of road incidents. Please watch the video at https://drive.google.com/drive/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97 and visit github link at https://github.com/seetadev/RoadOps/tree/main/Challenges/Leica-Hexagon
 
+7. Holcim MAQERs and Converge: We are developing a drone management solution for reducing carbon dioxide footprint and enable better operations at the road site and construction sites. Please visit: https://drive.google.com/drive/folders/1-2krkqOBaVJ23ABjish1_tKB9f_vC4IF
