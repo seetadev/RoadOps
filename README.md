@@ -23,3 +23,7 @@ Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/in
 Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Velas and watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
 
 3. SwissRe+Microsoft: We are using Livepeer and Microsoft Extended Reality for webrtc as the key infrastructure provider for online video streaming of critical road incidents ( Please visit https://github.com/seetadev/RoadOps/tree/main/Challenges/SwissReMicrosoft/ExtendedReality-LiveStream and watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji). We are using Livepeer and Microsoft Extended Reality for webrtc at: Live streaming with Object Detection Video Analytics using Livepeer and and Microsoft Extended Reality for webrtc, streaming; Camera Management: Add/edit/delete cameras with integration with Livepeer.
+
+4. Zurich: Health counselling, preventive treatment and remediation using a decentralized Twitter application by connecting patients with volunteer doctors. Please visit https://drive.google.com/drive/folders/1SF6o4OohPtz6z2THMoOQ8CZ9A0HvUgfb for watching the video and source code at https://github.com/seetadev/RoadOps/tree/main/Solution_Modules/Twitter%20like%20CounselingPlatform_usingEmbarkandEthereum
+
+
