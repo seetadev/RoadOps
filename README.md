@@ -1,6 +1,8 @@
 # RoadOps
 Investigative Case Management Platform to Save Lives on the Road: https://app.creatorspace.dev/aspiringmind/projects/Js6UzgNVEO1zEF48
 
+Demo Video: https://drive.google.com/drive/folders/18lqIDtWH6heTSIdK9NIP7jtaluVxaItl?usp=sharing
+
 Road Ops is an analytics and incident management platform for citizens, police officers and drivers to report and manage incidents, detect and prevent accidents on both mobile and web in a secure and simplified manner. With a mix of intelligent hardware, software on SAP Hana Database and Ethereum blockchain network with IPFS as the decentralized database, we provide intelligent feedback about drive quality and help analyze past incidents, as well as predict future incidents, enable road safety counseling.
 
 Features:
@@ -18,9 +20,9 @@ Blockchain Eco-system:
 
 a. Cronos: Please visit https://github.com/seetadev/RoadOps/tree/main/Chronos
 
-b. Covalent
+b. Covalent: We are developing 2 Covalent API Endpoints, one for fetching the total incidents reported by citizens and solved by police officers and the other for fetching the token_ids of Incident snapshot and Alarm NFT Contract.
 
-c. RockX
+c. RockX: We are learning to use RockX Access Node API to deploy and query on the Cronos Mainnet. We are still at the testnet stage.
 
 
 Other Key Blockchain and AR/VR Tools:
