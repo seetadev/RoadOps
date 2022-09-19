@@ -14,16 +14,16 @@ Features:
 4. Real Time Analytics: Analytics of the incidents with sentiment analysis and live incident reporting.  road safety eco-system. Health summary of the police staff, scheduling the staff. Reducing misinformation.
 
 
-Tools:
+Blockchain Eco-system:
 
-a. Cronos
+a. Cronos: Please visit https://github.com/seetadev/RoadOps/tree/main/Chronos
 
 b. Covalent
 
 c. RockX
 
 
-Other Key Tools:
+Other Key Blockchain and AR/VR Tools:
 
 1. Casper  (AXA – Impact Token): 
 We are using ERC-20 developer library to generate Master (an impact ERC-20 fungible Casper token) and also using Casper smart contracts eco-system to develop a counter for road incidents reported by citizens and complains resolved by police authorities in a specific region which could be shared across citizens and government authorities. Our impact token for citizens create a positive societal behavior and can be used for availing tax benefits, citizen rewards and ecommerce gift cards by Ministry of Road and Transportation. Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/erc20-token-developer and https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter. Please watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
