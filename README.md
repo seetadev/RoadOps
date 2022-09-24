@@ -15,6 +15,8 @@ Features:
 
 4. Real Time Analytics: Analytics of the incidents with sentiment analysis and live incident reporting.  road safety eco-system. Health summary of the police staff, scheduling the staff. Reducing misinformation.
 
+Moralis: 
+Deployment URL: https://3gtivnurtulj.usemoralis.com:2053/server (to be deployed to moralis)
 
 Blockchain Eco-system:
 
