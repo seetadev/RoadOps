@@ -20,9 +20,11 @@ Deployment URL: https://3gtivnurtulj.usemoralis.com:2053/server (to be deployed 
 
 Blockchain Eco-system:
 
-a. Cronos: Please visit https://github.com/seetadev/RoadOps/tree/main/Chronos
+a. Coinex CSC: https://github.com/seetadev/RoadOps/tree/main/CoinexCSC-Audit
 
-b. Covalent: We are developing 2 Covalent API Endpoints, one for fetching the total incidents reported by citizens and solved by police officers and the other for fetching the token_ids of Incident snapshot and Alarm NFT Contract.
+b.Cronos: Please visit https://github.com/seetadev/RoadOps/tree/main/Chronos
+
+Covalent: We are developing 2 Covalent API Endpoints, one for fetching the total incidents reported by citizens and solved by police officers and the other for fetching the token_ids of Incident snapshot and Alarm NFT Contract.
 
 c. RockX: We are learning to use RockX Access Node API to deploy and query on the Cronos Mainnet. We are still at the testnet stage.
 
