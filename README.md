@@ -17,6 +17,8 @@ Features:
 
 4. Real Time Analytics: Analytics of the incidents with sentiment analysis and live incident reporting.  road safety eco-system. Health summary of the police staff, scheduling the staff. Reducing misinformation.
 
+Expert.AI NL API: We are using expert.ai NL API for solving multiple challenges in investigative case management for the admin role: sentiment analysis of a particular incident at the road for the admin role, social media text mining for an incident and classification of the incidents, early stage incident reponse and prevention. We are using it for incident overview and assignment for the admin role too (please visit https://drive.google.com/drive/u/1/folders/18lqIDtWH6heTSIdK9NIP7jtaluVxaItl ).
+
 Moralis: 
 Deployment URL: https://3gtivnurtulj.usemoralis.com:2053/server (to be deployed to moralis)
 
