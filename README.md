@@ -19,6 +19,8 @@ Features:
 
 Expert.AI NL API: We are using expert.ai NL API for solving multiple challenges in investigative case management for the admin role: sentiment analysis of a particular incident at the road for the admin role, social media text mining for an incident and classification of the incidents, early stage incident reponse and prevention. We are using it for incident overview and assignment for the admin role too (please visit https://drive.google.com/drive/u/1/folders/18lqIDtWH6heTSIdK9NIP7jtaluVxaItl ).
 
+Please visit https://github.com/seetadev/RoadOps/tree/main/expert-ai-nlp
+
 Moralis: 
 Deployment URL: https://3gtivnurtulj.usemoralis.com:2053/server (to be deployed to moralis)
 
