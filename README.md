@@ -1,11 +1,12 @@
 # RoadOps
-Investigative Case Management Platform to Save Lives on the Road: https://sites.google.com/view/aspiring-road-safety/home
+Investigative Case Management Platform to Save Lives on the Road using key blockchain protocols and solutions: https://sites.google.com/view/aspiring-road-safety/home
 
 Creator Space Page: https://app.creatorspace.dev/aspiringmind/projects/Js6UzgNVEO1zEF48
 
-Demo Video: https://drive.google.com/drive/folders/18lqIDtWH6heTSIdK9NIP7jtaluVxaItl?usp=sharing
+Demo Video: https://drive.google.com/drive/u/3/folders/1-YWioQYGuWWbkKP290_fAHL80XdN0dk3
 
-Road Ops is an analytics and incident management platform for citizens, police officers and drivers to report and manage incidents, detect and prevent accidents on both mobile and web in a secure and simplified manner. With a mix of intelligent hardware, software on SAP Hana Database and Ethereum blockchain network with IPFS as the decentralized database, we provide intelligent feedback about drive quality and help analyze past incidents, as well as predict future incidents, enable road safety counseling.
+
+Road Ops is an analytics and incident management platform for citizens, police officers and drivers to report and manage incidents, detect and prevent accidents on both mobile and web in a secure and simplified manner. With a mix of intelligent hardware, software on SAP Hana Database and blockchain network with decentralized database, we provide intelligent feedback about drive quality and help analyze past incidents, as well as predict future incidents, enable road safety counseling.
 
 Features:
 
@@ -13,7 +14,7 @@ Features:
 
 2. Incident Dashboard: Manage and track your incidents  as a citizen along with sharing reviews and comments. Incident reporting, severity analytics and sentiment analysis using social media data for early stage detection and prevention of incidents. 
 
-3. Real Time Alerts and Live Streaming: Real time alerts and live streaming using livepeer ethereum project for incident verification and quick action.
+3. Real Time Alerts and Live Streaming: Real time alerts and live streaming using open source streaming project for incident verification and quick action.
 
 4. Real Time Analytics: Analytics of the incidents with sentiment analysis and live incident reporting.  road safety eco-system. Health summary of the police staff, scheduling the staff. Reducing misinformation.
 
@@ -21,12 +22,13 @@ Expert.AI NL API: We are using expert.ai NL API for solving multiple challenges 
 
 Please visit https://github.com/seetadev/RoadOps/tree/main/expert-ai-nlp
 
-Moralis: 
-Deployment URL: https://3gtivnurtulj.usemoralis.com:2053/server (to be deployed to moralis)
 
 Blockchain Eco-system:
 
-a. Coinex CSC: https://github.com/seetadev/RoadOps/tree/main/CoinexCSC-Audit
+a. Algorand blockchain: We are using Algorand blockchain for storing road geolocation file data and additional snapshot files and incident data. This will enable  effective management and communication setup of ALGO Transport solution in Operations and Incident Management across multiple regions. Algorand blockchain can be effectively utilized for road operations, investigative case management, inspection and road maintenance and also for safer and more efficient incident surveys.
+
+We are developing a crowdsourcing marketplace using Algorand's NFT marketplace for enabling sharing of government assets like toll prepaid card, car details information for interstate travel, driving license management and quarterly pollution check and analytics/visualization powered by Ethercalc (SocialCalc) for better coordination and immediate action.
+
 
 b.Cronos: Please visit https://github.com/seetadev/RoadOps/tree/main/Chronos
 
