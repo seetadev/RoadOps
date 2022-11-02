@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Your Account Recovery Phrase:</h1>
+<br>
+<h2>{{ passphrase }}</h2>
+<h2>Note this down and keep it secret!</h2
+<h2 id='Done'><a href="{{ url_for('main_bp.index') }}">Done</a></h2>
+{% endblock %}

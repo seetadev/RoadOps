@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% include 'nav.html' %}
+{% block content %}
+<h1>Transactions</h1>
+<table>
+    <tr>
+        <th>Sender/Receiver</th>
+        <th>Quantity</th>
+    </tr>
+    {% for txn in txns %}
+    <tr>
+        <td>{{ txn.address }}</td>
+        <td>{{ txn.amount }}</td>
+        </div>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
