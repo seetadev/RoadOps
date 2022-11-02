@@ -1,7 +1,5 @@
 # RoadOps
-Investigative Case Management Platform to Save Lives on the Road using key blockchain protocols and solutions: https://sites.google.com/view/aspiring-road-safety/home
-
-Creator Space Page: https://app.creatorspace.dev/aspiringmind/projects/Js6UzgNVEO1zEF48
+Investigative Case Management Platform to Save Lives on the Road using key blockchain protocols and solutions
 
 Demo Video: https://drive.google.com/drive/u/3/folders/1-YWioQYGuWWbkKP290_fAHL80XdN0dk3
 
