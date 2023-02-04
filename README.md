@@ -29,27 +29,3 @@ b. Algorand blockchain: We are using Algorand blockchain for storing road geoloc
 We are developing a crowdsourcing marketplace using Algorand's NFT marketplace for enabling sharing of government assets like toll prepaid card, car details information for interstate travel, driving license management and quarterly pollution check and analytics/visualization powered by Ethercalc (SocialCalc) for better coordination and immediate action.
 
 
-c.Cronos: Please visit https://github.com/seetadev/RoadOps/tree/main/Chronos
-
-Covalent: We are developing 2 Covalent API Endpoints, one for fetching the total incidents reported by citizens and solved by police officers and the other for fetching the token_ids of Incident snapshot and Alarm NFT Contract.
-
-d. RockX: We are learning to use RockX Access Node API to deploy and query on the Cronos Mainnet. We are still at the testnet stage.
-
-
-AR/VR and Supporting Tools:
-
-1. Mixed Reality @ SwissRe+Microsoft: We are using Livepeer and Microsoft Extended Reality for webrtc as the key infrastructure provider for online video streaming of critical road incidents ( Please visit https://github.com/seetadev/RoadOps/tree/main/Challenges/SwissReMicrosoft/ExtendedReality-LiveStream and watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji). We are using Livepeer and Microsoft Extended Reality for webrtc at: Live streaming with Object Detection Video Analytics using Livepeer and and Microsoft Extended Reality for webrtc, streaming; Camera Management: Add/edit/delete cameras with integration with Livepeer. We are developing a drone management solution for reducing carbon dioxide footprint and enable better operations at the road site and construction sites. Please visit: https://drive.google.com/drive/folders/1-2krkqOBaVJ23ABjish1_tKB9f_vC4IF
-
-2. Health counselling, preventive treatment and remediation using a decentralized Twitter application by connecting patients with volunteer doctors. Please visit https://drive.google.com/drive/folders/1SF6o4OohPtz6z2THMoOQ8CZ9A0HvUgfb for watching the video and source code at https://github.com/seetadev/RoadOps/tree/main/Solution_Modules/Twitter%20like%20CounselingPlatform_usingEmbarkandEthereum
-
-3. ZF (Connected Vehicles for Efficiency and Sustainability): Recommender system that helps a fleet manager to optimize the logistics operations using SocialCalc open source spreadsheet on sugar iot platform, alexa skill integration and ethereum blockchain-IPFS integration for proof of service/trust. Please visit https://drive.google.com/drive/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97 and https://github.com/seetadev/RoadOps/tree/main/Challenges/zf
-
-4. Leica Hexagon: We are developing an ICM (investigative case management) solution and a training system for citizens and police officers to understand and analyze the different categories of road incidents and be better prepared for managing future road accidents or emergency cases. Live video streaming enables administrators at command and control center to define severity index of various types of road incidents. Please watch the video at https://drive.google.com/drive/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97 and visit github link at https://github.com/seetadev/RoadOps/tree/main/Challenges/Leica-Hexagon
-
-5. Casper  (AXA – Impact Token): 
-We are using ERC-20 developer library to generate Master (an impact ERC-20 fungible Casper token) and also using Casper smart contracts eco-system to develop a counter for road incidents reported by citizens and complains resolved by police authorities in a specific region which could be shared across citizens and government authorities. Our impact token for citizens create a positive societal behavior and can be used for availing tax benefits, citizen rewards and ecommerce gift cards by Ministry of Road and Transportation. Please visit: https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/erc20-token-developer and https://github.com/seetadev/RoadOps/tree/main/Challenges/Casper/incidentcounter. Please watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
-
-
-6. Expert.AI NL API: We are using expert.ai NL API for solving multiple challenges in investigative case management for the admin role: sentiment analysis of a particular incident at the road for the admin role, social media text mining for an incident and classification of the incidents, early stage incident reponse and prevention. We are using it for incident overview and assignment for the admin role too (please visit https://drive.google.com/drive/u/1/folders/18lqIDtWH6heTSIdK9NIP7jtaluVxaItl ). Please visit https://github.com/seetadev/RoadOps/tree/main/expert-ai-nlp
-
-
