@@ -1,4 +1,4 @@
-# Solana Transport Monitor
+# Transport ICM
 
 Investigative Case Management Platform to Save Lives on the Road using key blockchain protocols and solutions
 
