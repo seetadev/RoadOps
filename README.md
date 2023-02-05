@@ -4,7 +4,7 @@ Investigative Case Management Platform to Save Lives on the Road using key block
 
 Demo Video: https://drive.google.com/drive/u/3/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97
 
-Transport ICM is an analytics and incident management platform for citizens, police officers and drivers to report and manage incidents, detect and prevent accidents on both mobile and web in a secure and simplified manner. With a mix of intelligent hardware, software on SAP Hana Database, Solana blockchain network with decentralized database, we provide intelligent feedback about drive quality and help analyze past incidents, as well as predict future incidents, enable road safety counseling.
+Transport ICM is an analytics and incident management platform for citizens, police officers and drivers to report and manage incidents, detect and prevent accidents on both mobile and web in a secure and simplified manner. With a mix of intelligent hardware, software on SAP Hana Database, Solana blockchain network with decentralized database, we provide intelligent feedback about drive quality and help analyze past incidents, as well as predict future incidents, enable road safety counseling.  Further, we enable private payments for vehicle repair on Solana using Elusiv sdk and nft voting for the service providers using daos.
 
 Features:
 
@@ -19,9 +19,24 @@ Features:
 
 Blockchain Eco-system:
 
-a. Solana Information Explorer: We are using Solana Multicurrency web wallet and information explorer with data analytics powered by SocialCalc for managing information and payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. SocialCalc with Solana explorer enables tabulation, data organization and management, is an easy-to-use analysis tool that summarises core data and features of a Token or NFT such as chains used, origin, issuer, energy consumption, and minting method.
+a. Solana Information Explorer: We are using Solana Multicurrency web wallet and information explorer with data analytics powered by SocialCalc for managing information and payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. SocialCalc with Solana explorer enables tabulation, data organization and management, is an easy-to-use analysis tool that summarises core data and features of a Token or NFT such as chains used, origin, issuer, energy consumption, and minting method.  We also enable private payments for vehicle repair on Solana using Elusiv sdk and nft voting for the service providers using daos. Please visit: https://github.com/seetadev/RoadOps/tree/main/solana-wallet-dao-mgmt/web3-auth-solana-wallet and   https://github.com/seetadev/RoadOps/tree/main/solana-wallet-dao-mgmt/elusiv-solana-private-pay and 
+
 Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats.
+
 Please watch the demo videos at https://drive.google.com/drive/u/3/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97 and https://drive.google.com/drive/u/3/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
+
+
+# NFT creation and minting on Solana
+
+We are also developing an NFT creation and minting system on Solana for NFC tags of automobiles: please visit https://github.com/seetadev/RoadOps/tree/main/mint-nfts-solana/solana-nft-diy
+
+
+# Content distribution using Solana:
+
+1. Audio: We are extending and adapting the Audius layer on the Solana ecosystem to enable audio based streaming of an incident event. We are using the lighthouse SDK for storage.
+
+2. Video: We are developing on the Huddle01 application layer and creating a bridge with the Solana blockchain to enable video conferencing and streaming on-chain. We are utilizing IPFS and Filecoin for storage purposes. We also plan to use Aptos along with Livepeer for developing a video command and control center and make it available via a bridge network.
+
 
 b. Algorand blockchain: We are using Algorand blockchain for storing road geolocation file data and additional snapshot files and incident data. This will enable  effective management and communication setup of ALGO Transport solution in Operations and Incident Management across multiple regions. Algorand blockchain can be effectively utilized for road operations, investigative case management, inspection and road maintenance and also for safer and more efficient incident surveys.
 
