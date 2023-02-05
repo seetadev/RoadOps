@@ -2,8 +2,7 @@
 
 Investigative Case Management Platform to Save Lives on the Road using key blockchain protocols and solutions
 
-Demo Video: https://drive.google.com/drive/u/3/folders/1-YWioQYGuWWbkKP290_fAHL80XdN0dk3
-
+Demo Video: https://drive.google.com/drive/u/3/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97
 
 Transport ICM is an analytics and incident management platform for citizens, police officers and drivers to report and manage incidents, detect and prevent accidents on both mobile and web in a secure and simplified manner. With a mix of intelligent hardware, software on SAP Hana Database, Solana blockchain network with decentralized database, we provide intelligent feedback about drive quality and help analyze past incidents, as well as predict future incidents, enable road safety counseling.
 
@@ -22,7 +21,7 @@ Blockchain Eco-system:
 
 a. Solana Information Explorer: We are using Solana Multicurrency web wallet and information explorer with data analytics powered by SocialCalc for managing information and payments to emergency service providers, maintenance and repair servicemen and also insuarnce and cab aggregator providers for availing their services. SocialCalc with Solana explorer enables tabulation, data organization and management, is an easy-to-use analysis tool that summarises core data and features of a Token or NFT such as chains used, origin, issuer, energy consumption, and minting method.
 Multi currency web wallet is very helpful in cases where the road incident involves tourists or foreign diplomats.
-Please watch the video at https://drive.google.com/drive/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
+Please watch the demo videos at https://drive.google.com/drive/u/3/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97 and https://drive.google.com/drive/u/3/folders/1KvQJdXcWq619OKKJPk37Sb6XzpQzWyji
 
 b. Algorand blockchain: We are using Algorand blockchain for storing road geolocation file data and additional snapshot files and incident data. This will enable  effective management and communication setup of ALGO Transport solution in Operations and Incident Management across multiple regions. Algorand blockchain can be effectively utilized for road operations, investigative case management, inspection and road maintenance and also for safer and more efficient incident surveys.
 
