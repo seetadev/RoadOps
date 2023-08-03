@@ -59,6 +59,13 @@ Wormhole cross chain interoperability between Solana and Cosmos
 5. Identity management, ability to extend the solution using IBC and reducing misinformation at the time of Incident analysis and reporting are the key reasons for experimenting with Canto.
 Overall, Canto enables investigative case management and incident reporting, identity management at the time of allocation of a case to a police officer, incident severity analysis based on the decentralize voting at the IBC chain.
 
+b. Wormhole bridge between Solana & Algorand blockchain:  We are developing a rental and subscription marketplace using Algorand's NFT marketplace for enabling sharing of government assets like toll prepaid card, car details information for interstate travel, driving license management and quarterly pollution check and analytics/visualization powered by Ethercalc (SocialCalc) for better coordination and immediate action. Please visit: https://github.com/seetadev/RoadOps/tree/main/dev/Algorand-nft-subscription-contracts
+
+Wormhole bridge between Solana & Algorand blockchain: Decentralized NFT-based subscription and voting system for contract work for service & maintenance providers and companies and Traffic Control. DAOs can issue NFTs to wallets based on service and maintenance performance and work completed, and the holders of these NFTs can create proposals and vote on other proposals whilst they have the NFTs of that contract work. We are also developing an NFT creation, subscription and minting system on Algorand: please visit https://github.com/seetadev/RoadOps/tree/main/dev/algorand
+
+AR, VR community tooling with integration in Algorand: https://github.com/seetadev/RoadOps/tree/main/dev/AR-VR-blockchain
+
+
 # Pyth dapp module to generate dynamic NFT updated by price prediction
 
 Please visit the implementation using Pyth Oracle and Metaplex NFT standard: dapp module at https://github.com/seetadev/RoadOps/tree/main/Pyth-Oracle-Solana-NFT
@@ -66,8 +73,4 @@ Please visit the implementation using Pyth Oracle and Metaplex NFT standard: dap
 
 
 
-b. Algorand blockchain:  We are developing a rental and subscription marketplace using Algorand's NFT marketplace for enabling sharing of government assets like toll prepaid card, car details information for interstate travel, driving license management and quarterly pollution check and analytics/visualization powered by Ethercalc (SocialCalc) for better coordination and immediate action. Please visit: https://github.com/seetadev/RoadOps/tree/main/dev/Algorand-nft-subscription-contracts
 
-Algorand blockchain: Decentralized NFT-based subscription and voting system for contract work for service & maintenance providers and companies and Traffic Control. DAOs can issue NFTs to wallets based on service and maintenance performance and work completed, and the holders of these NFTs can create proposals and vote on other proposals whilst they have the NFTs of that contract work. We are also developing an NFT creation, subscription and minting system on Algorand: please visit https://github.com/seetadev/RoadOps/tree/main/dev/algorand
-
-AR, VR community tooling with integration in Algorand: https://github.com/seetadev/RoadOps/tree/main/dev/AR-VR-blockchain
