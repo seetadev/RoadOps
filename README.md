@@ -1,6 +1,6 @@
-# Transport ICM
+# Transport DAO
 
-Investigative Case Management Platform to Save Lives on the Road using key blockchain protocols and solutions
+Investigative Case Management Platform to Save Lives on the Road using Solana blockchain, Wormhole, Pyth, Helius, Phantom and Web3 protocols and solutions.
 
 Demo Video: https://drive.google.com/drive/u/3/folders/10VBEjRllO9Q6BA_KhFsHkVOEcKWw_O97
 
