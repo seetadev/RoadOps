@@ -61,7 +61,8 @@ Overall, Canto enables investigative case management and incident reporting, ide
 
 # Pyth dapp module to generate dynamic NFT updated by price prediction
 
-Please visit the implementation using Pyth Oracle and Metaplex NFT standard: dapp module at 
+Please visit the implementation using Pyth Oracle and Metaplex NFT standard: dapp module at https://github.com/seetadev/RoadOps/tree/main/Pyth-Oracle-Solana-NFT
+
 
 
 
