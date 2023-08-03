@@ -70,6 +70,11 @@ AR, VR community tooling with integration in Algorand: https://github.com/seetad
 
 Please visit the implementation using Pyth Oracle and Metaplex NFT standard: dapp module at https://github.com/seetadev/RoadOps/tree/main/Pyth-Oracle-Solana-NFT
 
+# dapp module for Durable Nonces using Phantom
+
+Please visit the analytics and visualization tool for durable nonces using Phantom for sharing incident IDs: https://github.com/seetadev/RoadOps/tree/main/durable-nonces-solana-phantom/durable-nonces-usage-analytics/SocialCalc-master
+
+Please visit https://github.com/seetadev/RoadOps/tree/main/durable-nonces-solana-phantom/phantom-sandboxes-durable-nonces and https://github.com/seetadev/RoadOps/tree/main/durable-nonces-solana-phantom/solana-durable-nonces-phantom/solana-durable-nonces-main
 
 
 
