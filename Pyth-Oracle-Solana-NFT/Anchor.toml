@@ -1,0 +1,12 @@
+[programs.localnet]
+pythaplex = "6rCK1Tq1bbTwz9eKjV7QFxq7J6rw4HrSTNKQUUQALxhs"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "id.json"
+
+[scripts]
+test = "mocha -t 1000000 tests/"
