@@ -38,6 +38,29 @@ We are also developing an NFT creation and minting system on Solana for NFC tags
 2. Video: We are developing on the Huddle01 application layer and creating a bridge with the Solana blockchain to enable video conferencing and streaming on-chain. We are utilizing IPFS and Filecoin for storage purposes. We also plan to use Aptos along with Livepeer for developing a video command and control center and make it available via a bridge network.
 
 
+# Wormhole Cross Chain Borrow and Lend dapp module
+
+Usage of Wormhole Solana SDK: Please visit https://github.com/seetadev/RoadOps/tree/main/wormhole-crosschain-module/wormhole-solidity-sdk
+
+Wormhole Cross Chain Borrow Lend at https://github.com/seetadev/RoadOps/tree/main/wormhole-crosschain-module/wormhole-cross-chain-borrow-lend
+
+Wormhole cross chain interoperability between Solana and Cosmos
+
+1. Wormhole Solana and Canto bridge enables us to have a DAO infrastructure with minimal gas fees. That is very important both from the privacy and cost effectiveness front.
+
+2. Using Wormhole, Cosmos interoperability with Solana and Ethereum like blockchains. Also, ability to use decentralize NFT voting for incident investigative system.
+
+3. Ability to generate NFT and ease of identity management.
+
+4. We are generating an NFT for NFC tags for drones and UAVs and spare parts at the time of service and repair workflows.
+
+5. Analytics tooling for visualization, tabulation, collaboration and organization of data.
+
+5. Identity management, ability to extend the solution using IBC and reducing misinformation at the time of Incident analysis and reporting are the key reasons for experimenting with Canto.
+Overall, Canto enables investigative case management and incident reporting, identity management at the time of allocation of a case to a police officer, incident severity analysis based on the decentralize voting at the IBC chain.
+
+
+
 b. Algorand blockchain:  We are developing a rental and subscription marketplace using Algorand's NFT marketplace for enabling sharing of government assets like toll prepaid card, car details information for interstate travel, driving license management and quarterly pollution check and analytics/visualization powered by Ethercalc (SocialCalc) for better coordination and immediate action. Please visit: https://github.com/seetadev/RoadOps/tree/main/dev/Algorand-nft-subscription-contracts
 
 Algorand blockchain: Decentralized NFT-based subscription and voting system for contract work for service & maintenance providers and companies and Traffic Control. DAOs can issue NFTs to wallets based on service and maintenance performance and work completed, and the holders of these NFTs can create proposals and vote on other proposals whilst they have the NFTs of that contract work. We are also developing an NFT creation, subscription and minting system on Algorand: please visit https://github.com/seetadev/RoadOps/tree/main/dev/algorand
